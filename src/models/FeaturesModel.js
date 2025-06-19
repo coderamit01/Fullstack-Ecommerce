@@ -1,0 +1,16 @@
+import mongoose from "mongoose";
+
+const DataSchema = new mongoose.Schema(
+  {
+    name: {type: String,required: true},
+    desc: {type: String, required: true},
+    image: {type: String, required: true}
+  },{
+    timestamps: true,
+    versionKey: false
+  }
+);
+
+const FeaturesModel = mongoose.model('features', DataSchema);
+
+export default FeaturesModel;
