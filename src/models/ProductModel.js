@@ -11,7 +11,7 @@ const DataSchema = new mongoose.Schema(
     stock: {type: Boolean, required: true},
     remark: {type: String, required: true},
     categoryId: {type: mongoose.Schema.Types.ObjectId, required: true},
-    brandId: {type: mongoose.Schema.Types.ObjectId, required: true},
+    brandID: {type: mongoose.Schema.Types.ObjectId, required: true},
   },{
     timestamps: true,
     versionKey: false

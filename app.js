@@ -16,8 +16,8 @@ const app = express();
 app.use(cookieParser());
 app.use(cors());
 app.use(helmet());
-app.use(xss());
-app.use(mongoSanitize());
+// app.use(xss());
+// app.use(mongoSanitize());
 app.use(hpp());
 
 // Parsing 
