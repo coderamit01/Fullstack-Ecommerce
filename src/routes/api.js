@@ -1,6 +1,6 @@
 
 import express from 'express';
-import { ProductBrandList, ProductCategoryList, ProductListByBrand, ProductListByCategory, ProductListBySmilier, ProductSliderList } from '../controllers/ProductController.js';
+import { ProductBrandList, ProductCategoryList, ProductDetails, ProductListByBrand, ProductListByCategory, ProductListByKeyword, ProductListByRemark, ProductListBySmilier, ProductSliderList } from '../controllers/ProductController.js';
 const router = express.Router();
 
 
@@ -11,5 +11,8 @@ router.get('/ProductSliderList', ProductSliderList);
 router.get('/ProductListByBrand/:brandId', ProductListByBrand);
 router.get('/ProductListByCategory/:categoryId', ProductListByCategory);
 router.get('/ProductListBySmilier/:categoryId', ProductListBySmilier);
+router.get('/ProductListByKeyword/:keyword', ProductListByKeyword);
+router.get('/ProductListByRemark/:remark', ProductListByRemark);
+router.get('/ProductDetails/:productId', ProductDetails);
 
 export default router;
