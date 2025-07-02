@@ -3,6 +3,7 @@ import express from 'express';
 import { ProductBrandList, ProductCategoryList, ProductDetails, ProductListByBrand, ProductListByCategory, ProductListByKeyword, ProductListByRemark, ProductListBySmilier, ProductSliderList } from '../controllers/ProductController.js';
 import { CreateProfile, ReadProfile, UpdateProfile, UserLogOut, UserOTP, VerifyLogin } from '../controllers/UserController.js';
 import { Authverification } from '../middlewares/Authverification.js';
+import { RemoveWishList, SaveWishList, WishList } from '../controllers/WishListController.js';
 const router = express.Router();
 
 
@@ -27,9 +28,9 @@ router.get('/UpdateProfile',Authverification,ReadProfile);
 router.put('/UpdateProfile',Authverification,UpdateProfile);
 
 //Wish List 
-// router.post('/SaveWishList',Authverification);
-// router.post('/RemoveWishList',Authverification);
-// router.get('/WishList',Authverification);
+router.post('/SaveWishList',Authverification,SaveWishList);
+router.post('/RemoveWishList',Authverification,RemoveWishList);
+router.get('/WishList',Authverification,WishList);
 
 //Cart
 // router.post('/SaveCartList',Authverification);
