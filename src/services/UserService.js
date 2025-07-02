@@ -1,6 +1,7 @@
 import { EmailSend } from "../utils/EmailHelper.js";
 import UserModel from "../models/UserModel.js";
 import { EncodeToken } from "../utils/TokenHelper.js";
+import UserProfileModel from './../models/UserProfileModel.js';
 
 export const UserOTPService = async (req) => {
   try {
@@ -48,3 +49,28 @@ export const VerifyOTPService = async (req) => {
     return { status: "Fail", message: err };
   }
 };
+
+export const SaveProfileService = async(req) => {
+  try {
+    const user_id = req.headers.user_id;
+    let reqBody = req.body;
+    reqBody.user_id = reqBody;
+
+    await UserProfileModel.updateOne({userId: user_id}, {$set: reqBody}, {upsert: true});
+    
+    return { status: "success", message: "Profile Save Successfully" };
+  } catch (err) {
+    return { status: "Fail", message: err };
+  }
+}
+export const ReadProfileService = async(req) => {
+  try {
+    const user_id = req.headers.user_id;
+   
+    const result = await UserProfileModel.find({userId: user_id});
+    
+    return { status: "success", data: result };
+  } catch (err) {
+    return { status: "Fail", message: err };
+  }
+}
